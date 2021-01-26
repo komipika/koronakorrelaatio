@@ -24,7 +24,7 @@ let f = 1 //käyttämätön ominaisuus
 
 
 //Palauttaa tyylin geojsonia varten
-function style(feature) {
+function style (feature) {
 	//f:llä voi ohjata mitä propseja kartta käyttää väritykseen, ei käytössä
 	let color = f === 1 ? feature.properties.korona: 
 							f === 2 ? feature.properties.haku:
@@ -41,7 +41,7 @@ function style(feature) {
 }
 
 //Palauttaa tietyn värin d:n arvon perusteella
-function getColor(d) {
+function getColor (d) {
 	return  d > 1000 ?  '#800026':
 					d > 300  ?  '#BD0026':
 					d > 150  ?  '#E31A1C':
@@ -78,14 +78,14 @@ class Kartta extends Component {
 	}
 
 	//klikkauksen käsittelijä, muuttaa laatikkoa appin kautta
-	clickFeature(e) {
+	clickFeature (e) {
 		var layer = e.target
 		//console.log (layer.feature.properties)
 		this.props.handleChange(layer.feature.properties.code)
 	}	
 
 	//Korostaa tietyn layerin highlight -tyylillä
-	highlightFeature(e) {
+	highlightFeature (e) {
 
 		var layer = e.target;
 		//console.log(layer.feature.properties.name)
@@ -103,7 +103,7 @@ class Kartta extends Component {
 	}
 
 	//Poistaa highlight -tyylin layeristä
-	resetHighlight(e) {
+	resetHighlight (e) {
 		var layer = e.target;
 		layer.setStyle({
 			weight:        1,
@@ -114,7 +114,7 @@ class Kartta extends Component {
 		});
 	}
 
-  render(){
+  render() {
 		//Käydään läpi koronadata ja hakudata ja liitetään se karttaan
 		for (const feature of kuntaRajat.features){
 			let id = feature.properties.code

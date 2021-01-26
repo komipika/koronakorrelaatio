@@ -1,5 +1,3 @@
-function laskekorrelaatio(hakuData, koronaData){
-	
 /*
 © Authors:
 Antti Heimonen
@@ -11,10 +9,13 @@ Vilma Patama
 //Laskee korrelaation kahdelle samankokoiselle datasetille pearsonin korrelaatiokertoimen kaavalla
 //Palauttaa olion, joka sisältää tekstiä ja dataa
 
-	/*
-	console.log(hakuData)
-	console.log(koronaData)
-	*/
+/*
+console.log(hakuData)
+console.log(koronaData)
+*/
+
+function laskekorrelaatio (hakuData, koronaData) {
+	
 	let scatterData = []
 	
 	let koronakeskihajontalaskuri = 0

@@ -17,7 +17,7 @@ Navbar.js luo navigointipalkin sivuston yläreunaan.
 Sisältää info-nappulan, joka avaa modaalin, jossa on tietoa sivuston toiminnasta 
 */
 
-function Alert() {
+function Alert () {
 
   const [show, setShow] = useState(false);
 

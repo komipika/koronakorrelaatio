@@ -20,11 +20,11 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
+function valuetext (value) {
   return `${value}`;
 }
 
-export default function RangeSlider(props) {
+export default function RangeSlider (props) {
 
   //Labelit slideriin
   const marks = [

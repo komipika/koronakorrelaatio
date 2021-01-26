@@ -25,9 +25,9 @@ class Info extends MapControl {
   }
 
 
-  createLeafletElement(props) {}
+  createLeafletElement (props) {}
 
-  componentDidUpdate(){
+  componentDidUpdate () {
     if(this.props.kunta !== this.state.kunta){
       //console.log(this.props.kunta)
       this.setState({kunta: this.props.kunta})
@@ -37,7 +37,7 @@ class Info extends MapControl {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     legend.onAdd = () => {
       const div = L.DomUtil.create("div", "info kunta");
 

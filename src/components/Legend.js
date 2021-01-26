@@ -1,9 +1,6 @@
 import { MapControl, withLeaflet } from "react-leaflet";
 import L from "leaflet";
 
-
-class Legend extends MapControl {
-
 /*
 © Authors:
 Antti Heimonen
@@ -15,9 +12,11 @@ Vilma Patama
 Legend.js piirtää kartan oikeaan alakulmaan palkin joka kertoo mitä mikäkin väri kartalla merkitsee
 */
 
-  createLeafletElement(props) {}
+class Legend extends MapControl {
 
-  componentDidMount() {
+  createLeafletElement (props) {}
+
+  componentDidMount () {
     // Asettaa värin d:n perusteella
     const getColor = d => {
       return d > 1000 ?  '#800026':
