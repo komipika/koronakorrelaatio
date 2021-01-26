@@ -55,7 +55,7 @@ function haepaiva(viikko){
   return "" + v + "-" + k + "-" + p
 }
 
-var today = new Date();
+var today = new Date('December 30, 2020 01:00:00')
   //Hakee päivän perusteella kuluvan viikon
 today.getWeek = function () {
     var onejan = new Date(this.getFullYear(), 0, 1);
