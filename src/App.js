@@ -38,21 +38,21 @@ let hakuData        = _.cloneDeep(avain)
     hakuData.haettu = 0
 let trendsData       = _.cloneDeep(gtrendsavain)
 // let koronaData      = _.cloneDeep(avain)
-let hakualku        = "2020-01-28"
-let hakuloppu       = "2020-01-28"
+let hakualku        = '2020-01-28'
+let hakuloppu       = '2020-01-28'
 
 //palauttaa viikon ensimmäisen päivän muodossa vuosi-kuukausi-päivä
-function haepaiva(viikko){
+function haepaiva (viikko) {
   let vuosi = 2020
   let ekaPaiva = new Date(2020, 0, 1).getDay();
-  let paiva    = new Date("Jan 01, " + vuosi + " 01:00:00")
+  let paiva    = new Date('Jan 01, ' + vuosi + ' 01:00:00')
   let d        = new Date( paiva.getTime() - (3600000 * 24 * (ekaPaiva - 1)) + 604800000 * (viikko - 1))
   
   let p        = d.getDate()
   let k        = d.getMonth() + 1
   k            = ('0' + k).slice(-2)
   let v        = d.getFullYear()
-  return "" + v + "-" + k + "-" + p
+  return '' + v + '-' + k + '-' + p
 }
 
 var today = new Date('December 30, 2020 01:00:00')
@@ -81,15 +81,15 @@ function App() {
 
   const [laatikkoKorona, setLaatikkoKorona]          
     = useState({ 
-      id: 		 "area005",
-      trends:  "",
-      korona:  "",
-      nimi:    ""
+      id: 		 'area005',
+      trends:  '',
+      korona:  '',
+      nimi:    ''
     }
   )
   const [laatikkoKorrelaatio, setLaatikkoKorrelaatio] 
     = useState({
-      teksti: "",
+      teksti: '',
       data:    0,
       uskottavuus: 0,
     }
@@ -111,7 +111,7 @@ function App() {
 
   // Effect pyytää THL-datan backendiltä sivun auettua ja asettaa
   // sen thlData-tilaan. thlData on null, kunnes oikea data asetetaan.
-  useEffect(() => {
+  useEffect (() => {
     async function initThlData() {
       const thl = await ThlService.getData()
       setThlData(thl)
@@ -137,15 +137,15 @@ function App() {
     for (const kunta in rajattuData){
         //alustetaan kaikkien kuntien koronadatksi 0
         rajattuData[kunta].data = 0 
-        let id = "" + kunta
+        let id = '' + kunta
 
         //Lisätään 0:aan thldatan arvoja
         for (let i = ala; i <= ylä; i++){
-            let viikko = "" + ('0' + i).slice(-2)
-            if(thlData["2020"][viikko][id] !== undefined){
-              let arvo = parseInt(thlData["2020"][viikko][id])
+            let viikko = '' + ('0' + i).slice(-2)
+            if(thlData['2020'][viikko][id] !== undefined){
+              let arvo = parseInt(thlData['2020'][viikko][id])
               if(!isNaN(arvo))
-                rajattuData[kunta]["data"] += arvo
+                rajattuData[kunta]['data'] += arvo
             }
         }
         kArvo += rajattuData[kunta].data
@@ -171,12 +171,12 @@ function App() {
 
     data = {
       id: value,
-      trends: trendsData[value] !== undefined ? trendsData[value] : "Tee haku nähdäksesi trends-arvot",
-      korona: koronaData !== null ? koronaData[value]["data"]: "jahas",
-      nimi: koronaData !== null ? koronaData[value]["kunta"]: "jahas"
+      trends: trendsData[value] !== undefined ? trendsData[value] : 'Tee haku nähdäksesi trends-arvot',
+      korona: koronaData !== null ? koronaData[value]['data']: 'virhe datassa',
+      nimi: koronaData !== null ? koronaData[value]['kunta']: 'virhe datassa'
     }
     setLaatikkoKorona(data)
-    setValittuDropDown(koronaData[value]["kunta"])
+    setValittuDropDown(koronaData[value]['kunta'])
   }
 
   
@@ -187,7 +187,7 @@ function App() {
   //Asettaa dropdownille oikean kunnan ja välittää handlelaatikkokoronachangelle
   //Ilmon että valinta vaihtunut koodin kera
   function handleDropDownChange (e, vastaus) {
-    setKunta(kuntaAvain[vastaus.value]["koodi"]);
+    setKunta(kuntaAvain[vastaus.value]['koodi']);
   }
 
 
@@ -216,7 +216,7 @@ function App() {
       setGtrendsHakemassa(false)
       if (gtData === null){
         // Gtrends-datan hakeminen epäonnistui
-        console.log(`Gtrends dataa ei voitu hakea!`);
+        console.log('Gtrends dataa ei voitu hakea!');
         return;
       }
       let tulos = laskekorrelaatio(gtData, koronaData)
@@ -238,7 +238,7 @@ function App() {
       setAsetettuHakusana(hakusana);
       // console.log(hakusana);
       console.log(asetettuHakusana);
-      if(hakusana !== "")haeGtrendsTulokset();
+      if(hakusana !== '')haeGtrendsTulokset();
     }
   }
 
@@ -257,17 +257,17 @@ function App() {
 
 
   //Jos thldata ei ole tullut perille niin ei renderöidä muuta kuin else
-  if(thlData !== null)
+  if (thlData !== null)
     return (
-      <div className="App">
+      <div className='App'>
         <Navigointi/>
-      <div className="Flex">
+      <div className='Flex'>
         {karttafunktio()}
         <RangeSlider 
           value          = {sliderValue} 
           handleChange   = {handleSliderChange}
           max            = {max}/>
-        <div className="hakuTiedot">
+        <div className='hakuTiedot'>
           <Container fluid>
             <Row>
               <Col xs={4} md={6}>
@@ -304,7 +304,7 @@ function App() {
     );
   else
     return (
-      <div className="App">
+      <div className='App'>
         <p>Odota hetki kun sivu lataantuu</p>
       </div>
     );

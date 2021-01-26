@@ -118,18 +118,18 @@ class Kartta extends Component {
 		//Käydään läpi koronadata ja hakudata ja liitetään se karttaan
 		for (const feature of kuntaRajat.features){
 			let id = feature.properties.code
-			this.props.koronaData[id]["data"] === undefined ? feature.properties.korona = 0 : feature.properties.korona = this.props.koronaData[id]["data"]
+			this.props.koronaData[id]['data'] === undefined ? feature.properties.korona = 0 : feature.properties.korona = this.props.koronaData[id]['data']
 			
-      if(this.props.hakuData[id]["data"] !== undefined){
-				feature.properties.haku = this.props.hakuData[id]["data"]
+      if(this.props.hakuData[id]['data'] !== undefined){
+				feature.properties.haku = this.props.hakuData[id]['data']
       }	
 		}
 
     return (
       <Map center={position} zoom={5}>
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors | Korona-data &copy; <a href=&quot;https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-&quot;>THL</a>"
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+          attribution='&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors | Korona-data &copy; <a href=&quot;https://thl.fi/fi/tilastot-ja-data/aineistot-ja-palvelut/avoin-data/varmistetut-koronatapaukset-suomessa-covid-19-&quot;>THL</a>'
         />
         <Legend />
 				<Info 

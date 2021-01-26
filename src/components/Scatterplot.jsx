@@ -1,5 +1,5 @@
-import React from "react"
-import { scaleLinear, max, axisLeft, axisBottom, select } from "d3"
+import React from 'react'
+import { scaleLinear, max, axisLeft, axisBottom, select } from 'd3'
 
 /*
 © Authors:
@@ -39,33 +39,33 @@ export default class ScatterPlot extends React.Component {
       .range([height, 0])
 
     return (
-      <div className="graafi">
+      <div className='graafi'>
         <svg
           width={width + margin.right + margin.left}
           height={height + margin.top + margin.bottom}
-          className="chart"
+          className='chart'
         >
           <g
-            transform={"translate(" + margin.left + "," + margin.top + ")"}
+            transform={'translate(' + margin.left + ',' + margin.top + ')'}
             width={width}
             height={height}
-            className="main"
+            className='main'
           >
             <DrawCircles data={data} scale={{ x, y }} />
             <Axis
-              axis="x"
-              transform={"translate(0," + height + ")"}
+              axis='x'
+              transform={'translate(0,' + height + ')'}
               scale={axisBottom().scale(x)}
             />
             <Axis
-              axis="y"
-              transform="translate(0,0)"
+              axis='y'
+              transform='translate(0,0)'
               scale={axisLeft().scale(y)}
               
             />
           </g>
-          <text class="x-label" textAnchor="end" x={width} y={height+50}> G-Trends -data </text>
-          <text class="y-label" textAnchor="end" y={6} dy=".75em" transform="rotate(-90)"> Koronaesiintymät kunnittain</text>
+          <text class='x-label' textAnchor='end' x={width} y={height+50}> G-Trends -data </text>
+          <text class="y-label" textAnchor='end' y={6} dy='.75em' transform='rotate(-90)'> Koronaesiintymät kunnittain</text>
           
         </svg>
       </div>
@@ -79,8 +79,8 @@ class DrawCircles extends React.Component {
       <circle
         cx={this.props.scale.x(xy[0])}
         cy={this.props.scale.y(xy[1])}
-        r="6"
-        style={{ fill: "#67B9CD" }}
+        r='6'
+        style={{ fill: '#67B9CD' }}
         key={i}
       />
     ))
@@ -97,7 +97,7 @@ class Axis extends React.Component {
   render() {
     return (
       <g
-        className="main axis date"
+        className='main axis date'
         transform={this.props.transform}
         ref={this.props.axis}
       />

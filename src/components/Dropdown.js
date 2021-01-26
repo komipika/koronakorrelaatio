@@ -20,20 +20,20 @@ const DropdownSearch = ({valittuKunta, onChange}) => {
   const kuntaValinnat = []
   
   // Luodaan silmukassa kuntaDatan pohjalta objekti jokaiselle kunnalle ja asetetaan se kuntaValinnat arrayn sisään
-  for(let i = 0; i < kuntaData.kunnat.length; i++){
+  for (let i = 0; i < kuntaData.kunnat.length; i++){
       const kuntaNimi = kuntaData.kunnat[i].nimi;
       const kuntaKoodi = kuntaData.kunnat[i].koodi;
       const iKunta = {key: kuntaKoodi, text: kuntaNimi, value: kuntaNimi}
       kuntaValinnat.push(iKunta);
   }
-  kuntaValinnat.sort(function(a, b) {
+  kuntaValinnat.sort(function (a, b) {
     if (a.text < b.text) return -1;
     if (a.text > b.text) return 1;
     return 0;
   });
   
   // Tehdään dropdown
-  return(
+  return (
     <div className= 'dropdown'>
     <Dropdown
       button

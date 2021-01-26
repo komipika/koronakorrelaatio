@@ -26,12 +26,12 @@ function Alert() {
 
     return (
       <div>
-          <Navbar className="Navbar" bg="primary" variant="light">
+          <Navbar className='Navbar' bg='primary' variant='light'>
           <Navbar.Brand>Koronakorrelaatio</Navbar.Brand>
         <Nav>
           <Button 
-          className="nappi" 
-          variant="primary"
+          className='nappi' 
+          variant='primary'
           onClick={handleShow}
           >Info
           </Button>
@@ -39,7 +39,7 @@ function Alert() {
         </Navbar>
 
         <Modal
-        className="alert"
+        className='alert'
         show={show} 
         onHide={handleClose} 
         animation={false}>
@@ -63,7 +63,7 @@ function Alert() {
           </p>
            </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant='primary' onClick={handleClose}>
             Sulje
           </Button>
         </Modal.Footer>

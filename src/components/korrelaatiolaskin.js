@@ -27,12 +27,12 @@ Vilma Patama
 	let uskottavuus = 0
 
 	for(var element in koronaData){
-		koronakeskiarvolaskuri += koronaData["" + element]["data"]
+		koronakeskiarvolaskuri += koronaData['' + element]['data']
 		koronapituus++
-		let solu = [hakuData["" + element] , koronaData["" + element]["data"]]
+		let solu = [hakuData['' + element] , koronaData['' + element]['data']]
 		if (solu[0] !== 0 && solu[1] !== 0) uskottavuus++
 		if (!(solu[0] === 0 && solu[1] === 0))scatterData.push(solu)
-		hakukeskiarvolaskuri += hakuData["" + element]
+		hakukeskiarvolaskuri += hakuData['' + element]
 		hakupituus++
 	}
 
@@ -42,8 +42,8 @@ Vilma Patama
 	let koronakeskiarvo = koronakeskiarvolaskuri / koronapituus
 
 	for(element in koronaData){
-		koronakeskihajontalaskuri += (koronaData["" + element]["data"] - koronakeskiarvo) * (koronaData["" + element]["data"] - koronakeskiarvo)
-		hakukeskihajontalaskuri += (hakuData["" + element] - hakukeskiarvo) * (hakuData["" + element] - hakukeskiarvo)
+		koronakeskihajontalaskuri += (koronaData['' + element]['data'] - koronakeskiarvo) * (koronaData['' + element]['data'] - koronakeskiarvo)
+		hakukeskihajontalaskuri += (hakuData['' + element] - hakukeskiarvo) * (hakuData['' + element] - hakukeskiarvo)
 	}
 
 	let hakuhajonta = Math.sqrt(hakukeskihajontalaskuri / hakupituus) 
@@ -51,7 +51,7 @@ Vilma Patama
 	let pearsonlaskuri = 0
 
 	for(element in hakuData){
-			pearsonlaskuri += (hakuData["" + element] - hakukeskiarvo) * (koronaData["" + element]["data"] - koronakeskiarvo) //* (helement.haku - hakukeskiarvo)
+			pearsonlaskuri += (hakuData['' + element] - hakukeskiarvo) * (koronaData['' + element]['data'] - koronakeskiarvo) //* (helement.haku - hakukeskiarvo)
 	}
 	
 	let pearsonjakaja = (koronapituus * koronahajonta * hakuhajonta)
@@ -68,12 +68,12 @@ Vilma Patama
 
 	let data = {}
 	data.teksti = pearson > 0.7 || pearson < -0.7 ? 
-									"muuttujien välillä on selvä lineaarinen yhteys" :
+									'muuttujien välillä on selvä lineaarinen yhteys' :
 								pearson > 0.3 || pearson < -0.3 ? 
-									"muuttujien välillä on jonkin verran lineaarista yhteyttä" :
+									'muuttujien välillä on jonkin verran lineaarista yhteyttä' :
 								pearson > 0.1 || pearson < -0.1 ? 
-									"muuttujien välillä ei ole juurikaan lineaarista yhteyttä":
-									"muuttujien välillä ei ole lineaarista yhteyttä";
+									'muuttujien välillä ei ole juurikaan lineaarista yhteyttä':
+									'muuttujien välillä ei ole lineaarista yhteyttä';
 	data.pearson = Math.abs(pearson) 
 	data.scatterData = scatterData
 	data.uskottavuus = uskottavuus

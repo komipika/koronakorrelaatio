@@ -71,14 +71,14 @@ export default function RangeSlider(props) {
 
   return (
     <div className={classes.root} style={tyyli}>
-      <Typography id="range-slider" gutterBottom>
+      <Typography id='range-slider' gutterBottom>
         Haettavat viikot koronatilastoille
       </Typography>
       <Slider
         value={props.value}
         onChange={props.handleChange}
-        valueLabelDisplay="auto"
-        aria-labelledby="range-slider"
+        valueLabelDisplay='auto'
+        aria-labelledby='range-slider'
         getAriaValueText={valuetext}
         min={5}
         max={props.max}

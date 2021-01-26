@@ -30,10 +30,10 @@ Legend.js piirtää kartan oikeaan alakulmaan palkin joka kertoo mitä mikäkin 
                   '#dcf1f2';
     }  
 
-    const legend = L.control({ position: "bottomright" });
+    const legend = L.control({ position: 'bottomright' });
 
     legend.onAdd = () => {
-      const div = L.DomUtil.create("div", "info legend");
+      const div = L.DomUtil.create('div', 'info legend');
       const grades = [0, 4, 10, 25, 75, 150, 300, 1000];
       let labels = [];
       let from;
@@ -48,12 +48,12 @@ Legend.js piirtää kartan oikeaan alakulmaan palkin joka kertoo mitä mikäkin 
             getColor(from + 1) +
             '"></i> ' +
             from +
-            (to ? "&ndash;" + to : "+")
+            (to ? '&ndash;' + to : '+')
         );
       }
       
 
-      div.innerHTML = labels.join("<br>");
+      div.innerHTML = labels.join('<br>');
       return div;
     };
 
